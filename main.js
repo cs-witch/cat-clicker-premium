@@ -21,47 +21,108 @@ let tinaClick = 0;
 let beanClick = 0;
 let hamClick = 0;
 
-//create div append div into display area
-div.append(image);
-div.append(name);
-div.append (counter);
-display.append(div);
- 
-// declare counter variable
-let counter= 0;
-	counter.innerHTML = "Clicks <span>" +clickNum+ "</span>";
+//add id to image
+image.setAttribute("id", "image")
 
-// create counters for each cat
-let barnabyClick= 0;
-let hamClick = 0;
 //add event listener to the img
-const imgAnimate = image.addEventListener("click", increment);
-console.log(imgAnimate);
+image.addEventListener("click", increment);
 
-fucntion increment(){
-	//console.log("123");
-	switch(name.textContent) {
-		case: "Barnaby", 
-		barnabyClick++;
-		counter.innerHTML = `Clicks: <span>${barnabyClick}</span>`;
-		break;
-		case: "Rasputin",
-		rasputinClick++;
-		counterinnerHTML = `Clicks: <span>${rasputinClick}</span>`;
-		case: "Tina", 
-		barnabyClick++;
-		counter.innerHTML = `Clicks: <span>${barnabyClick}</span>`;
-		break;		
-		case: "Bean", 
-		barnabyClick++;
-		counter.innerHTML = `Clicks: <span>${barnabyClick}</span>`;
-		break;		
-		case: "Ham", 
-		barnabyClick++;
-		counter.innerHTML = `Clicks: <span>${barnabyClick}</span>`;
-		break;		
-	}
+// $(imgAnimate).addClass("animated rubberBand");
 
+function increment() {
+    switch (name.textContent) {
+        case "Barnaby":
+            barnabyClick++;
+            counter.innerHTML = `Clicks: <span>${barnabyClick}</span>`;
+            break;
+        case "Rasputin":
+            rasputinClick++;
+            counter.innerHTML = `Clicks: <span>${rasputinClick}</span>`;
+            break;
+        case "Tina":
+            tinaClick++;
+            counter.innerHTML = `Clicks: <span>${tinaClick}</span>`;
+            break;
+        case "Bean":
+            beanClick++;
+            counter.innerHTML = `Clicks: <span>${beanClick}</span>`;
+            break;
+        case "Ham":
+            hamClick++;
+            counter.innerHTML = `Clicks: <span>${hamClick}</span>`;
+            break;
+    }
 }
 
-//display current numbr of cat clicks
+function showBarnaby() {
+    name.textContent = "Barnaby";
+    image.setAttribute("src", "bengal.jpg");
+    counter.innerHTML = `Clicks: <span>${barnabyClick}</span>`;
+
+    div.append(name);
+    div.append(image);
+    div.append(counter);
+    display.append(div);
+    addAnimation();
+}
+
+function showRasputin() {
+    name.textContent = "Rasputin";
+    image.setAttribute("src", "burmese.jpg");
+    counter.innerHTML = `Clicks: <span>${rasputinClick}</span>`;
+
+    div.append(name);
+    div.append(image);
+    div.append(counter);
+    display.append(div);
+    // addAnimation();
+}
+function showTina() {
+    name.textContent = "Tina";
+    image.setAttribute("src", "ragdoll.jpg");
+    counter.innerHTML = `Clicks: <span>${tinaClick}</span>`;
+
+    div.append(name);
+    div.append(image);
+    div.append(counter);
+    display.append(div);
+    // addAnimation();
+}
+function showBean() {
+    name.textContent = "Bean";
+    image.setAttribute("src", "siamese.jpg");
+    counter.innerHTML = `Clicks: <span>${beanClick}</span>`;
+
+    div.append(name);
+    div.append(image);
+    div.append(counter);
+    display.append(div);
+    // addAnimation();
+}
+function showHam() {
+    name.textContent = "Ham";
+    image.setAttribute("src", "spyhnx.jpeg");
+    counter.innerHTML = `Clicks: <span>${hamClick}</span>`;
+
+    div.append(name);
+    div.append(image);
+    div.append(counter);
+    display.append(div);
+    // addAnimation();
+}
+
+function addAnimation(){
+	const $image = $("#image");
+	$image.click(function() {
+		$image.animate({
+    opacity: 0.7,
+    left: "+=50",
+    height: "toggle"
+  }, 500, function() {
+    $image.css("opacity", 1);
+    $image.toggle("slow");
+    });
+  });
+};
+
+// $(selector).hide(speed,callback);
